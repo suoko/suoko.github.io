@@ -159,7 +159,8 @@ And experimented a bit:
       }
       
       
-      
+
+
 ### FLAME SENSOR
 
 [https://geekydaayaree.blogspot.com/2020/04/2-pin-flame-sensor-interfacing-with.html](https://geekydaayaree.blogspot.com/2020/04/2-pin-flame-sensor-interfacing-with.html)
