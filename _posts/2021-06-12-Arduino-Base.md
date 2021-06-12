@@ -81,74 +81,79 @@ And experimented a bit:
 [https://simple-circuit.com/arduino-stepper-motor-joystick-control/](https://simple-circuit.com/arduino-stepper-motor-joystick-control/)
 [https://create.arduino.cc/projecthub/arduino-applications/stepper-motor-control-with-joystick-f5feb1](https://create.arduino.cc/projecthub/arduino-applications/stepper-motor-control-with-joystick-f5feb1)
  
-                int s1 = 2;
-                int s2 = 3;
-                int s3 = 4;
-                int s4 = 5;
-                int x;
-                void setup() {
-                  pinMode(s1, OUTPUT);
-                  pinMode(s2, OUTPUT);
-                  pinMode(s3, OUTPUT);
-                  pinMode(s4, OUTPUT);
-                  pinMode(A4, INPUT);
-                 }
-                void loop() {
-                  x = analogRead(A4);
- 
-                  if(x<500)
-                  {
-                 digitalWrite(s1, HIGH);
-                 digitalWrite(s2, LOW);
-                 digitalWrite(s3, LOW);
-                 digitalWrite(s4, LOW);
-                 delay(5);
-                 digitalWrite(s1, LOW);
-                 digitalWrite(s2, HIGH);
-                 digitalWrite(s3, LOW);
-                 digitalWrite(s4, LOW);
-                 delay(5);
-                 digitalWrite(s1, LOW);
-                 digitalWrite(s2, LOW);
-                 digitalWrite(s3, HIGH);
-                 digitalWrite(s4, LOW);
-                 delay(5);
-                 digitalWrite(s1, LOW);
-                 digitalWrite(s2, LOW);
-                 digitalWrite(s3, LOW);
-                 digitalWrite(s4, HIGH);
-                 delay(5);
-                 }
-                 else if(x>550)
-                 {
-                  digitalWrite(s1, LOW);
-                 digitalWrite(s2, LOW);
-                 digitalWrite(s3, LOW);
-                 digitalWrite(s4, HIGH);
-                 delay(5);
-                 digitalWrite(s1, LOW);
-                 digitalWrite(s2, LOW);
-                 digitalWrite(s3, HIGH);
-                 digitalWrite(s4, LOW);
-                 delay(5);
-                 digitalWrite(s1, LOW);
-                 digitalWrite(s2, HIGH);
-                 digitalWrite(s3, LOW);
-                 digitalWrite(s4, LOW);
-                 delay(5);
-                 digitalWrite(s1, HIGH);
-                 digitalWrite(s2, LOW);
-                 digitalWrite(s3, LOW);
-                 digitalWrite(s4, LOW);
-                 delay(5);
-                 }
-                 else if(x > 500 && x < 550)
-                 {
-                 digitalWrite(s1, LOW);
-                 digitalWrite(s2, LOW);
-                 digitalWrite(s3, LOW);
-                 digitalWrite(s4, LOW);
-                 }
-                }
- 
+       Unipolar stepper motor speed and direction control with Arduino
+       *   and joystick
+       * This is a free software with NO WARRANTY.
+       * https://simple-circuit.com/
+       */
 
+      // include Arduino stepper motor library
+      #include <Stepper.h
+
+      // define number of steps per revolution
+      #define STEPS 32
+
+      // define stepper motor control pins
+      #define IN1  2
+      #define IN2  3
+      #define IN3  4
+      #define IN4  5
+
+      // initialize stepper library
+      Stepper stepper(STEPS, IN4, IN2, IN3, IN1);
+
+      // joystick pot output is connected to Arduino A0
+      #define joystick  A4
+
+      void setup()
+      {
+
+      }
+
+      void loop()
+      {
+        // read analog value from the potentiometer
+        int val = analogRead(joystick);
+
+        // if the joystic is in the middle === stop the motor
+        if(  (val  500) && (val < 523) )
+        {
+          digitalWrite(IN1, LOW);
+          digitalWrite(IN2, LOW);
+          digitalWrite(IN3, LOW);
+          digitalWrite(IN4, LOW);
+        }
+
+        else
+        {
+          // move the motor in the first direction
+          while (val = 523)
+          {
+            // map the speed between 5 and 500 rpm
+            int speed_ = map(val, 523, 1023, 5, 500);
+            // set motor speed
+            stepper.setSpeed(speed_);
+
+            // move the motor (1 step)
+            stepper.step(1);
+
+            val = analogRead(joystick);
+          }
+
+          // move the motor in the other direction
+          while (val <= 500)
+          {
+            // map the speed between 5 and 500 rpm
+            int speed_ = map(val, 500, 0, 5, 500);
+            // set motor speed
+            stepper.setSpeed(speed_);
+
+            // move the motor (1 step)
+            stepper.step(-1);
+
+            val = analogRead(joystick);
+          }
+
+        }
+
+      }
