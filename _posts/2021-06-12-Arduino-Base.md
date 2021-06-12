@@ -157,3 +157,32 @@ And experimented a bit:
         }
 
       }
+      
+      
+      
+###FLAME SENSOR
+[https://geekydaayaree.blogspot.com/2020/04/2-pin-flame-sensor-interfacing-with.html](https://geekydaayaree.blogspot.com/2020/04/2-pin-flame-sensor-interfacing-with.html)
+
+        int flameSensorPin = 0; //  a0 
+        int flameSensorReading; 
+        int buzzerPin=8; 
+        void setup(void) 
+        {  
+        Serial.begin(9600);
+        pinMode(buzzerPin,OUTPUT);
+        } 
+        void loop(void) 
+        { 
+        flameSensorReading = analogRead(flameSensorPin);  
+        if(flameSensorReading<1023)
+        {
+        digitalWrite(buzzerPin,HIGH);
+        }
+        else
+        {
+        digitalWrite(buzzerPin,LOW);
+        }
+        Serial.print("Analog reading = "); 
+        Serial.println(flameSensorReading); // the raw analog reading delay(1000); 
+        delay(500);
+        }
