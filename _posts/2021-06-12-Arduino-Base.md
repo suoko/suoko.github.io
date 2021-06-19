@@ -188,3 +188,9 @@ And experimented a bit:
         Serial.println(flameSensorReading); // the raw analog reading delay(1000); 
         delay(500);
         }
+
+### RFID SERIAL MON
+
+[https://create.arduino.cc/projecthub/MisterBotBreak/how-to-use-rfid-with-serial-monitor-ecfc26](https://create.arduino.cc/projecthub/MisterBotBreak/how-to-use-rfid-with-serial-monitor-ecfc26)
+
+![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/11/Mifare_bb.png?resize=1024%2C584&quality=100&strip=all&ssl=1)
