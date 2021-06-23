@@ -194,3 +194,54 @@ And experimented a bit:
 [https://create.arduino.cc/projecthub/MisterBotBreak/how-to-use-rfid-with-serial-monitor-ecfc26](https://create.arduino.cc/projecthub/MisterBotBreak/how-to-use-rfid-with-serial-monitor-ecfc26)
 
 ![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/11/Mifare_bb.png?resize=1024%2C584&quality=100&strip=all&ssl=1)
+
+### DHT11 SENSOR
+![]({{site.baseurl}}/_posts/dht.jpg)![dht.jpg]({{site.baseurl}}/_posts/dht.jpg)
+
+[https://www.brainy-bits.com/post/how-to-use-the-dht11-temperature-and-humidity-sensor-with-an-arduino](https://www.brainy-bits.com/post/how-to-use-the-dht11-temperature-and-humidity-sensor-with-an-arduino)
+
+[https://forum.arduino.cc/t/solved-lcd-i2c-problem-printing-text/510124/4](https://forum.arduino.cc/t/solved-lcd-i2c-problem-printing-text/510124/4)
+
+		
+      #include <Wire.h>
+      #include <hd44780.h>                       // main hd44780 header
+      #include <hd44780ioClass/hd44780_I2Cexp.h> // i2c expander i/o class header
+      #include "dht.h"
+      #define dht_apin A0 // Analog Pin sensor is connected to
+
+      dht DHT;
+      hd44780_I2Cexp lcd; // declare lcd object: auto locate & config exapander chip
+
+      // LCD geometry
+      const int LCD_COLS = 16;
+      const int LCD_ROWS = 2;
+
+      void setup()
+      {
+      int status;
+
+       status = lcd.begin(LCD_COLS, LCD_ROWS);
+       if(status) // non zero status means it was unsuccesful
+       {
+       status = -status; // convert negative status value to positive number
+
+       hd44780::fatalError(status); // does not return
+       }
+
+
+      }
+
+      void loop() {
+         DHT.read11(dht_apin);
+         lcd.setCursor(0,0);
+         lcd.print((String)"Humidity: " + DHT.humidity);
+         delay(2000);
+         lcd.setCursor(0,1);
+         lcd.print((String)"Temp: " + DHT.temperature);
+         delay(2000);
+         lcd.clear();
+         delay(2000);
+
+        }
+
+
