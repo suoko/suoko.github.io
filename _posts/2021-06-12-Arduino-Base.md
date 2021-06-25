@@ -196,6 +196,7 @@ And experimented a bit:
 ![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/11/Mifare_bb.png?resize=1024%2C584&quality=100&strip=all&ssl=1)
 
 ### DHT11 SENSOR
+![](https://raw.githubusercontent.com/suoko/suoko.github.io/master/images/dht.jpg)
 
 [https://www.brainy-bits.com/post/how-to-use-the-dht11-temperature-and-humidity-sensor-with-an-arduino](https://www.brainy-bits.com/post/how-to-use-the-dht11-temperature-and-humidity-sensor-with-an-arduino)
 
