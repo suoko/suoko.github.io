@@ -2,5 +2,4 @@
 published: true
 ---
 ### Longer LK4 pro
-![]({{site.baseurl}}/_posts/IMG_20210626_093122.jpg)
-![]({{site.baseurl}}/_posts/IMG_20210626_093122.jpg)
+![](https://raw.githubusercontent.com/suoko/suoko.github.io/master/images/IMG_20210626_093122.jpg)
