@@ -4,11 +4,14 @@ published: false
 ### Branch offices the fast and furious way
 
 ## Firewalls + azure ROPC.
-I found this cute possibility, still to be confirmed, tested, approved, etc... of connecting a coworking space firewall directly to the azure identify service.
-This way you allow poeple going to a coworking to authenticate against directy to the conpany cloud environment.
+
+I found this cute possibility, still to be confirmed, tested, approved, etc... of connecting a coworking-space firewall directly to the azure identify service.
+This way you allow poeple going to a coworking office to directly authenticate against to the company cloud environment.
 Just like you can join users PCs to AAD.
 
-What does a solution like this offer in terms of TimeToImplement of a remote branch office? 
+What does a solution like this offer in terms of TimeToImplement of a small remote branch office? 
+These offices used to remotely train people around the globe can be a good compound to remote and standard education.
 
 Almost 'zero days' :-|
+
 Almost Chromeos
