@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 # BRUNCH: CHROMEOS FOR ANY PC
 
