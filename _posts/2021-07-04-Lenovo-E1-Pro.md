@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ### A full optional smartwatch
 ![](https://images.eprice.it/nobrand/0/lightbox/512/210524512/DAM210524512-3-dbd30d7f-31f7-4f9b-943f-a89a0b0ef815.jpg)
