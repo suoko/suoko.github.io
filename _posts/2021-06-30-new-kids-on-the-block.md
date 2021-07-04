@@ -3,6 +3,8 @@ published: true
 ---
 ### Webbased for beginners, web based to stay ?
 
+![]({{site.baseurl}}/images/Tinkerscratch.png)
+
 # Scratch and tinkercad
 
 [https://scratch.mit.edu/users/suoko/](https://scratch.mit.edu/users/suoko/)
